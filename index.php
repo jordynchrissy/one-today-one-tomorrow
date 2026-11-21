@@ -1,3 +1,10 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$isLoggedIn = isset($_SESSION["user_id"]);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +47,19 @@
         <li><a href="insights.php">Insights</a></li>
         <li><a href="quiet-corner.php">Quiet Corner</a></li>
         <li><a href="settings.php">My Space</a></li>
-    </ul>
+        
+        <?php if ($isLoggedIn): ?>
+
+            <a href="logout.php">Log Out ♡</a>
+
+        <?php else: ?>
+
+            <a href="login.php">Log In ♡</a>
+            <a href="register.php">Sign Up ✿</a>
+
+        <?php endif; ?>
+
+            </ul>
 
 </div>
 
