@@ -1788,3 +1788,1850 @@ button:focus-visible {
     top: 0;
     z-index: 1000;
 }
+
+
+/* ========================================
+   INSIGHTS DASHBOARD
+======================================== */
+
+.insights-page {
+    min-height: 100vh;
+    padding: 60px 6% 80px;
+    background:
+        radial-gradient(circle at top left, #ffd0e1, transparent 40%),
+        radial-gradient(circle at bottom right, #ffce9c, transparent 40%),
+        #fff0e6;
+    color: var(--plum);
+}
+
+/* Introduction */
+
+.insights-intro {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.insights-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+
+.insights-intro h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.insights-intro h1 em {
+    color: var(--pink);
+}
+
+.insights-intro > p:last-child {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Statistics grid */
+
+.insights-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 50px;
+}
+
+/* Individual statistic cards */
+
+.stat-card {
+    padding: 35px 20px;
+    border: 2px solid var(--plum);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 6px 6px 0 var(--plum);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 11px 0 var(--plum);
+}
+
+.stat-pink {
+    background: #ffd5e5;
+}
+
+.stat-orange {
+    background: #ffe0ac;
+}
+
+.stat-teal {
+    background: #cce9df;
+}
+
+.stat-icon {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.stat-card h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: 3.5rem;
+    margin: 5px 0;
+}
+
+.stat-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+    .insights-stats {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .insights-page {
+        padding: 40px 6% 60px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stat-card {
+        transition: none;
+    }
+
+    .stat-card:hover {
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   WEEKLY MOOD CALENDAR
+======================================== */
+
+.weekly-mood-card {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 35px;
+    background: #fffdf5;
+    border: 2px solid var(--plum);
+    border-radius: 20px;
+    box-shadow: 6px 6px 0 #f7a4bc;
+}
+
+.weekly-mood-card h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 10px;
+}
+
+.weekly-mood-card h2 em {
+    color: var(--pink);
+}
+
+/* Calendar layout */
+
+.weekly-mood-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.weekly-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.weekly-day-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.weekly-mood-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100px;
+    aspect-ratio: 1 / 1;
+    border: 2px solid var(--plum);
+    border-radius: 16px;
+    font-size: clamp(1rem, 3vw, 2.5rem);
+    transition: transform 0.2s ease;
+}
+
+.weekly-mood-icon:hover {
+    transform: translateY(-4px);
+}
+
+/* Individual mood colours */
+
+.weekly-mood-icon.mood-happy {
+    background: #ffe6a7;
+}
+
+.weekly-mood-icon.mood-good {
+    background: #ffd5e5;
+}
+
+.weekly-mood-icon.mood-okay {
+    background: #d8ede4;
+}
+
+.weekly-mood-icon.mood-sad {
+    background: #dce4f5;
+}
+
+.weekly-mood-icon.mood-tired {
+    background: #e9dcf3;
+}
+
+.weekly-mood-icon.mood-empty {
+    background: #f4ede7;
+    border: 2px dashed #cbb9bf;
+    color: #806b76;
+}
+
+.weekly-day-date {
+    font-size: 0.85rem;
+}
+
+.weekly-note {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    padding-top: 20px;
+    border-top: 1px dashed #d8b8c5;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 600px) {
+
+    .weekly-mood-card {
+        padding: 20px 12px;
+    }
+
+    .weekly-mood-grid {
+        gap: 5px;
+    }
+
+    .weekly-mood-icon {
+        border-radius: 9px;
+    }
+
+    .weekly-day-name,
+    .weekly-day-date {
+        font-size: 0.65rem;
+        letter-spacing: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .weekly-mood-icon {
+        transition: none;
+    }
+
+    .weekly-mood-icon:hover {
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   EMOTIONAL PALETTE
+======================================== */
+
+.emotional-palette {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 35px;
+    background: #fffdf5;
+    border: 2px solid var(--plum);
+    border-radius: 20px;
+    box-shadow: 6px 6px 0 #f7a4bc;
+}
+
+.emotional-palette h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 10px;
+}
+
+.emotional-palette h2 em {
+    color: var(--pink);
+}
+
+/* Mood chart */
+
+.palette-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin: 35px 0;
+}
+
+.palette-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 45px;
+    align-items: center;
+    gap: 15px;
+}
+
+.palette-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.palette-track {
+    height: 24px;
+    background: #f1e8e1;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.palette-fill {
+    height: 100%;
+    border-radius: 30px;
+    animation: paletteGrow 1s ease-out;
+}
+
+/* Mood colours */
+
+.palette-happy {
+    background: #f5b94c;
+}
+
+.palette-good {
+    background: #ee83b4;
+}
+
+.palette-okay {
+    background: #80c9bb;
+}
+
+.palette-sad {
+    background: #9caedb;
+}
+
+.palette-tired {
+    background: #b9a0ce;
+}
+
+.palette-percentage {
+    font-weight: 700;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+/* Bar animation */
+
+@keyframes paletteGrow {
+    from {
+        width: 0;
+    }
+}
+
+/* Empty state */
+
+.palette-empty {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.palette-empty span {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.palette-empty h3 {
+    font-family: "DM Serif Display", serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.palette-empty a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 22px;
+    background: #ffd5e5;
+    color: var(--plum);
+    border: 2px solid var(--plum);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.palette-empty a:hover {
+    background: #ffe0ac;
+}
+
+.palette-note {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    padding-top: 20px;
+    border-top: 1px dashed #d8b8c5;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 600px) {
+
+    .emotional-palette {
+        padding: 25px 15px;
+    }
+
+    .palette-row {
+        grid-template-columns: 75px 1fr 35px;
+        gap: 8px;
+    }
+
+    .palette-label,
+    .palette-percentage {
+        font-size: 0.8rem;
+    }
+
+    .palette-track {
+        height: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .palette-fill {
+        animation: none;
+    }
+}
+
+
+/* ========================================
+   QUIET CORNER — SCRAPBOOK DESK
+======================================== */
+
+.quiet-desk {
+    min-height: 100vh;
+    padding: 60px 6% 40px;
+    color: #543044;
+
+    background-color: #fce5d6;
+    background-image:
+        radial-gradient(#d9aa982e 1px, transparent 1px),
+        radial-gradient(
+            ellipse at top left,
+            #ffd5e5,
+            transparent 60%
+        );
+
+    background-size: 18px 18px, 100% 100%;
+}
+
+/* Scrapbook introduction */
+
+.desk-intro {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto 60px;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.desk-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #ad3268;
+    margin-bottom: 20px;
+}
+
+.desk-intro h1 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.desk-intro h1 em {
+    color: #ee3294;
+    position: relative;
+    display: inline-block;
+}
+
+.desk-intro h1 em::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    border-bottom: 3px solid #ee3294;
+    border-radius: 50%;
+    transform: rotate(-3deg);
+}
+
+.desk-subtitle {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+.desk-decoration {
+    color: #ad6685;
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+
+/* Decorative sparkles */
+
+.desk-sparkle {
+    position: absolute;
+    pointer-events: none;
+}
+
+.sparkle-left {
+    left: 2%;
+    top: 40%;
+    font-size: 3rem;
+    color: #ee83b4;
+    transform: rotate(-15deg);
+}
+
+.sparkle-right {
+    right: 2%;
+    top: 15%;
+    font-size: 3.5rem;
+    color: #f5a343;
+    transform: rotate(15deg);
+}
+
+/* Asymmetrical scrapbook workspace */
+
+.scrapbook-desk {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 35px;
+    max-width: 1150px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Closing message */
+
+.desk-signoff {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 65px;
+    color: #80546c;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 768px) {
+
+    .quiet-desk {
+        padding: 35px 5%;
+    }
+
+    .desk-intro {
+        margin-bottom: 35px;
+    }
+
+    .desk-eyebrow {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+
+    .scrapbook-desk {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .desk-sparkle {
+        font-size: 1.5rem;
+    }
+
+    .sparkle-left {
+        left: 0;
+        top: 0;
+    }
+
+    .sparkle-right {
+        right: 0;
+        top: 0;
+    }
+}
+
+
+/* ========================================
+   QUIET CORNER — LETTERS TO TOMORROW
+======================================== */
+
+.desk-letter {
+    grid-column: span 7;
+    position: relative;
+    min-width: 0;
+    padding: 40px 35px 30px;
+
+    background-color: #fffdf5;
+    background-image: repeating-linear-gradient(
+        transparent 0px,
+        transparent 27px,
+        #ead5cd 28px,
+        transparent 29px
+    );
+
+    border: 1.5px solid #543044;
+    border-radius: 4px;
+    box-shadow: 7px 8px 0 #54304420;
+
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.desk-letter:hover {
+    transform: rotate(0deg);
+}
+
+/* Pink washi tape */
+
+.letter-tape {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 130px;
+    height: 32px;
+
+    background: repeating-linear-gradient(
+        45deg,
+        #ee83b4aa,
+        #ee83b4aa 5px,
+        #ffd5e5aa 5px,
+        #ffd5e5aa 10px
+    );
+
+    transform: translateX(-50%) rotate(4deg);
+}
+
+/* Stationery typography */
+
+.scrapbook-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ad3268;
+    margin-bottom: 15px;
+}
+
+.desk-letter h2 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.desk-letter h2 em {
+    display: block;
+    color: #ee3294;
+}
+
+.letter-greeting {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+/* The little pink envelope */
+
+.letter-envelope {
+    position: relative;
+    width: min(230px, 100%);
+    height: 140px;
+    margin: 35px auto;
+
+    transform: rotate(5deg);
+    transition: transform 0.4s ease;
+}
+
+.desk-letter:hover .letter-envelope {
+    transform: rotate(0deg) translateY(-8px);
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #ffd5e5;
+    border: 1px solid #ad6685;
+    border-radius: 5px;
+    box-shadow: 5px 6px 0 #54304415;
+}
+
+.envelope-pocket {
+    position: absolute;
+    inset: 0;
+    background: #ffe4ee;
+
+    clip-path: polygon(
+        0 100%, 50% 35%, 100% 100%
+    );
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: #f2a6bf;
+
+    clip-path: polygon(
+        0 0, 100% 0, 50% 65%
+    );
+}
+
+/* Heart-shaped envelope seal */
+
+.envelope-heart {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #ee3294;
+    font-size: 2.5rem;
+    text-shadow: 2px 3px 0 #ad326833;
+}
+
+/* Description and button */
+
+.letter-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 350px;
+    margin-bottom: 20px;
+}
+
+.letter-open-btn {
+    background: #543044;
+    color: #fffdf5;
+    border: 1px solid #543044;
+    border-radius: 30px;
+
+    padding: 12px 22px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: background 0.3s ease,
+                color 0.3s ease;
+}
+
+.letter-open-btn:hover {
+    background: #ffd5e5;
+    color: #543044;
+}
+
+.letter-open-btn:focus-visible {
+    outline: 3px solid #ad3268;
+    outline-offset: 4px;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 768px) {
+
+    .desk-letter {
+        grid-column: 1 / -1;
+        padding: 35px 25px 25px;
+        transform: rotate(-1deg);
+    }
+
+    .letter-envelope {
+        width: min(190px, 100%);
+        height: 115px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .desk-letter,
+    .letter-envelope,
+    .letter-open-btn {
+        transition: none;
+    }
+
+    .desk-letter:hover {
+        transform: rotate(-2deg);
+    }
+
+    .desk-letter:hover .letter-envelope {
+        transform: rotate(5deg);
+    }
+}
+
+
+/* ========================================
+   QUIET CORNER — LETTER WRITING MODAL
+======================================== */
+
+#letter-modal {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(550px, 90vw);
+    max-height: 85vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    padding: 35px;
+
+    background: #fffdf5;
+    color: #543044;
+    border: 1.5px solid #543044;
+    border-radius: 18px;
+    box-shadow: 8px 8px 0 #54304440;
+}
+
+#letter-modal:not([open]) {
+    display: none;
+}
+
+#letter-modal[open] {
+    display: block;
+    visibility: visible;
+    animation: letterAppear 0.3s ease;
+}
+
+/* Blurred background */
+
+#letter-modal::backdrop {
+    background: rgba(84, 48, 68, 0.45);
+    backdrop-filter: blur(5px);
+}
+
+/* Close button */
+
+.letter-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid #543044;
+    border-radius: 50%;
+    background: #ffd5e5;
+    color: #543044;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.letter-close-btn:hover {
+    background: #ee83b4;
+}
+
+/* Typography */
+
+.letter-modal h2 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.letter-modal h2 em {
+    color: #ee3294;
+}
+
+.letter-modal-intro {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #80546c;
+    margin-bottom: 25px;
+}
+
+/* Form layout */
+
+.future-letter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.future-letter-form label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.future-letter-form input,
+.future-letter-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+
+    background: #fff0e6;
+    color: #543044;
+    border: 1px solid #d9b8c6;
+    border-radius: 8px;
+
+    font: inherit;
+    font-size: 0.9rem;
+}
+
+.future-letter-form input:focus,
+.future-letter-form textarea:focus {
+    outline: 2px solid #ee83b4;
+    outline-offset: 2px;
+}
+
+/* Lined stationery paper */
+
+.future-letter-form textarea {
+    min-height: 200px;
+    resize: vertical;
+    line-height: 28px;
+
+    background-color: #fffaf3;
+    background-image: repeating-linear-gradient(
+        transparent 0px,
+        transparent 27px,
+        #ead5cd 28px
+    );
+
+    background-origin: content-box;
+    background-attachment: local;
+}
+
+.future-letter-form input::placeholder,
+.future-letter-form textarea::placeholder {
+    color: #9d7b8d;
+}
+
+/* Seal with love button */
+
+.seal-letter-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px 20px;
+
+    background: #543044;
+    color: #fffdf5;
+    border: 1px solid #543044;
+    border-radius: 30px;
+
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.seal-letter-btn:hover {
+    background: #ad3268;
+}
+
+.letter-modal-note {
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #80546c;
+}
+
+/* Opening animation */
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 600px) {
+    #letter-modal {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    #letter-modal[open] {
+        animation: none;
+    }
+
+    .seal-letter-btn {
+        transition: none;
+    }
+}
+
+
+.letter-success {
+    background: #d8ede4;
+    color: #365c50;
+    border: 1px dashed #50bdb4;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   QUIET CORNER — LITTLE MAILBOX
+======================================== */
+
+.little-mailbox {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 2px dashed #d9b8c6;
+}
+
+.little-mailbox h3 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+.mailbox-description {
+    font-size: 0.85rem;
+    color: #80546c;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Saved letters */
+
+.mailbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 340px;
+    overflow-y: auto;
+    padding: 4px 6px 6px 2px;
+}
+
+.mailbox-letter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+
+    border: 1px solid #ad6685;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 #54304415;
+
+    transition: transform 0.2s ease;
+}
+
+.mailbox-letter:hover {
+    transform: translateY(-2px);
+}
+
+.mailbox-letter.locked {
+    background: #ffd5e5;
+}
+
+.mailbox-letter.unlocked {
+    background: #d8ede4;
+    border-color: #50bdb4;
+}
+
+/* Miniature envelopes */
+
+.mini-envelope {
+    position: relative;
+    flex-shrink: 0;
+    width: 55px;
+    height: 37px;
+
+    background: #fffdf5;
+    border: 1px solid #ad6685;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.mini-envelope::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: #f2a6bf;
+    clip-path: polygon(
+        0 0, 100% 0, 50% 65%
+    );
+}
+
+.mini-envelope span {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 1.2rem;
+    color: #ee3294;
+}
+
+.unlocked .mini-envelope::before {
+    background: #a8d8ca;
+}
+
+/* Letter information */
+
+.mailbox-letter-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.mailbox-letter-info h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0 0 5px;
+    overflow-wrap: anywhere;
+}
+
+.mailbox-letter-info p {
+    font-size: 0.75rem;
+    color: #80546c;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.letter-lock {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.read-letter-btn {
+    background: #543044;
+    color: #fffdf5;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.read-letter-btn:hover {
+    background: #ad3268;
+}
+
+/* Empty mailbox */
+
+.mailbox-empty {
+    text-align: center;
+    background: #fff0e6;
+    border: 1px dashed #d9b8c6;
+    border-radius: 10px;
+    padding: 25px 15px;
+}
+
+.mailbox-empty span {
+    font-size: 2.5rem;
+}
+
+.mailbox-empty p {
+    font-size: 0.85rem;
+    color: #80546c;
+    margin-top: 10px;
+}
+
+.mailbox-note {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #80546c;
+    margin-top: 20px;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 480px) {
+    .mailbox-letter {
+        padding: 12px 10px;
+        gap: 10px;
+    }
+
+    .mini-envelope {
+        width: 42px;
+        height: 30px;
+    }
+
+    .little-mailbox h3 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mailbox-letter {
+        transition: none;
+    }
+
+    .mailbox-letter:hover {
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   QUIET CORNER — OPENED LETTER
+======================================== */
+
+.opened-letter-page {
+    min-height: 100vh;
+    padding: 60px 6%;
+    background-color: #fce5d6;
+    background-image: radial-gradient(
+        #54304418 1px,
+        transparent 1px
+    );
+    background-size: 20px 20px;
+    color: #543044;
+}
+
+.back-to-mailbox {
+    display: block;
+    max-width: 750px;
+    margin: 0 auto 40px;
+    color: #543044;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.back-to-mailbox:hover {
+    color: #ee3294;
+}
+
+.opened-letter {
+    position: relative;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 55px 45px 110px;
+
+    background: #fffdf5;
+    border: 1px solid #543044;
+    box-shadow: 8px 8px 0 #54304425;
+}
+
+.opened-letter-tape {
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    width: 130px;
+    height: 35px;
+
+    background: repeating-linear-gradient(
+        45deg,
+        #f2a6bfaa,
+        #f2a6bfaa 8px,
+        #ffd5e5aa 8px,
+        #ffd5e5aa 16px
+    );
+
+    transform: translateX(-50%) rotate(-4deg);
+}
+
+.opened-letter-date {
+    font-size: 0.8rem;
+    color: #80546c;
+    margin-top: 12px;
+}
+
+.opened-letter h1 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 20px 0;
+    overflow-wrap: anywhere;
+}
+
+.opened-letter-divider {
+    color: #ee3294;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.opened-letter-content {
+    font-size: 1rem;
+    line-height: 2rem;
+    min-height: 200px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent calc(2rem - 1px),
+        #d9b8c680 calc(2rem - 1px),
+        #d9b8c680 2rem
+    );
+}
+
+.opened-letter-signature {
+    margin-top: 35px;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.opened-letter-signature em {
+    color: #ee3294;
+}
+
+.delivery-stamp {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    padding: 10px 15px;
+
+    border: 3px double #ad3268;
+    color: #ad3268;
+
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+
+    transform: rotate(-8deg);
+}
+
+.opened-letter-note {
+    text-align: center;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+    .opened-letter {
+        padding: 40px 22px 110px;
+    }
+
+    .opened-letter-page {
+        padding: 40px 5%;
+    }
+}
+
+
+/* ========================================
+   QUIET CORNER — LITTLE JOYS BINGO
+======================================== */
+
+.desk-bingo {
+    grid-column: span 5;
+    position: relative;
+    min-width: 0;
+    padding: 30px 20px;
+
+    background-color: #fffdf2;
+    background-image: radial-gradient(
+        #5430440c 1px,
+        transparent 1px
+    );
+    background-size: 12px 12px;
+
+    border: 1px solid #543044;
+    box-shadow: 6px 6px 0 #54304425;
+
+    transform: rotate(1.5deg);
+    transition: transform 0.3s ease;
+}
+
+.desk-bingo:hover {
+    transform: rotate(0deg);
+}
+
+/* Decorative washi tape */
+
+.bingo-tape {
+    position: absolute;
+    top: -14px;
+    right: 25px;
+    width: 95px;
+    height: 28px;
+
+    background: repeating-linear-gradient(
+        45deg,
+        #f6ce7acc,
+        #f6ce7acc 7px,
+        #fff0cecc 7px,
+        #fff0cecc 14px
+    );
+
+    transform: rotate(8deg);
+}
+
+/* Vintage scrapbook heading */
+
+.bingo-heading {
+    position: relative;
+    text-align: center;
+    margin: 25px 0 18px;
+}
+
+.bingo-little-title {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #543044;
+    margin-bottom: 10px;
+}
+
+.bingo-title {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 0;
+}
+
+.bingo-title span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18%;
+    max-width: 65px;
+    aspect-ratio: 0.9;
+
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 400;
+    color: #543044;
+
+    border: 1px solid #543044;
+    border-radius: 3px;
+    box-shadow: 2px 3px 0 #54304425;
+}
+
+.bingo-title span:nth-child(1) {
+    background: #f6b2ce;
+    transform: rotate(-7deg);
+}
+
+.bingo-title span:nth-child(2) {
+    background: #f6ce7a;
+    transform: rotate(4deg);
+}
+
+.bingo-title span:nth-child(3) {
+    background: #b5ddd1;
+    transform: rotate(-3deg);
+}
+
+.bingo-title span:nth-child(4) {
+    background: #f7b68d;
+    transform: rotate(5deg);
+}
+
+.bingo-title span:nth-child(5) {
+    background: #d8c5e9;
+    transform: rotate(-5deg);
+}
+
+.bingo-sparkle {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    font-size: 2rem;
+    color: #e7a43e;
+}
+
+.bingo-edition {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    margin-top: 18px;
+    color: #80546c;
+}
+
+.bingo-description {
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+    color: #80546c;
+    margin-bottom: 20px;
+}
+
+/* Bingo grid */
+
+.bingo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1px;
+    padding: 1px;
+
+    background: #543044;
+    border: 1px solid #543044;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.bingo-square {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 85px;
+    padding: 6px 4px;
+
+    border: none;
+    color: #543044;
+    font-family: inherit;
+    font-size: 0.68rem;
+    line-height: 1.35;
+    text-align: center;
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.bingo-square:nth-child(5n + 1) {
+    background: #ffe1e9;
+}
+
+.bingo-square:nth-child(5n + 2) {
+    background: #fff0ce;
+}
+
+.bingo-square:nth-child(5n + 3) {
+    background: #fff8eb;
+}
+
+.bingo-square:nth-child(5n + 4) {
+    background: #fce0cb;
+}
+
+.bingo-square:nth-child(5n + 5) {
+    background: #eee3f6;
+}
+
+.bingo-square:hover:not(:disabled) {
+    background: #f6b2ce;
+}
+
+.bingo-square:focus-visible {
+    outline: 3px solid #543044;
+    outline-offset: -4px;
+}
+
+.bingo-task {
+    overflow-wrap: anywhere;
+}
+
+/* Completion stamps */
+
+.bingo-stamp {
+    display: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #387a65;
+    margin-bottom: 3px;
+}
+
+.bingo-square.completed {
+    background: #bce1d2;
+}
+
+.bingo-square.completed .bingo-stamp {
+    display: block;
+}
+
+.bingo-square.free-space {
+    font-weight: bold;
+    cursor: default;
+    opacity: 1;
+}
+
+/* Progress tracker */
+
+.bingo-progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.7rem;
+    margin: 18px 0 8px;
+}
+
+#bingo-wins {
+    font-weight: bold;
+    color: #ad3268;
+}
+
+.bingo-progress-track {
+    height: 7px;
+    background: #f2ded5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bingo-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #50bdb4;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.bingo-celebration {
+    background: #d8ede4;
+    color: #365c50;
+    padding: 12px;
+    margin-top: 15px;
+    border: 1px dashed #50bdb4;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.bingo-celebration[hidden] {
+    display: none;
+}
+
+/* Reset button */
+
+.bingo-reset-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+
+    background: transparent;
+    border: 1px solid #ad6685;
+    border-radius: 30px;
+
+    color: #543044;
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.bingo-reset-btn:hover {
+    background: #ffd5e5;
+}
+
+.bingo-note {
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #80546c;
+    margin-top: 18px;
+}
+
+/* Responsiveness */
+
+@media (max-width: 1000px) {
+    .desk-bingo {
+        grid-column: 1 / -1;
+        max-width: 650px;
+        width: 100%;
+        box-sizing: border-box;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .desk-bingo {
+        padding: 25px 12px;
+        transform: none;
+    }
+
+    .bingo-square {
+        font-size: 0.65rem;
+        min-height: 90px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .desk-bingo,
+    .bingo-square,
+    .bingo-progress-fill {
+        transition: none;
+    }
+
+    .desk-bingo,
+    .desk-bingo:hover {
+        transform: none;
+    }
+}
+
+
+/* Bingo completion animations */
+
+.bingo-square.completed .bingo-stamp {
+    animation: bingoStamp 0.3s ease-out;
+}
+
+@keyframes bingoStamp {
+    0% {
+        transform: scale(0.4) rotate(-20deg);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.2) rotate(5deg);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Highlight completed bingo lines */
+
+.bingo-square.winning-square {
+    background: #f6ce7a;
+    box-shadow: inset 0 0 0 2px #c58d35;
+}
+
+.bingo-square.winning-square .bingo-stamp {
+    color: #80551e;
+}
+
+.bingo-square.completed:hover:not(:disabled) {
+    background: #a8d8ca;
+}
+
+.bingo-square.winning-square:hover:not(:disabled) {
+    background: #f6ce7a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bingo-square.completed .bingo-stamp {
+        animation: none;
+    }
+}
+
+
+/* Bingo card shuffle animation */
+
+.bingo-grid.shuffling {
+    animation: bingoShuffle 0.65s ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes bingoShuffle {
+
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+    25% {
+        transform: scale(0.92) rotate(-3deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(0.88) rotate(3deg);
+        opacity: 0;
+    }
+
+    75% {
+        transform: scale(0.95) rotate(-1deg);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bingo-grid.shuffling {
+        animation: none;
+    }
+}
+
+
+/* ========================================
+   BINGO CONFETTI CELEBRATION
+======================================== */
+
+.bingo-confetti {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -25px;
+    width: 10px;
+    height: 15px;
+    opacity: 0;
+
+    animation: confettiFall var(--duration)
+        ease-in forwards;
+
+    animation-delay: var(--delay);
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate3d(
+            var(--drift), 110vh, 0
+        ) rotate(var(--rotation));
+
+        opacity: 0;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bingo-confetti {
+        display: none;
+    }
+}
