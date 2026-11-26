@@ -139,23 +139,31 @@ if ($isLoggedIn) {
             <h2>How is your heart today?</h2>
             <p>Whatever you're feeling, there's room for it here.</p>
 
-            <div class="mood-options" role="group" aria-label="Choose today's mood">
-                <button class="mood-btn" data-mood="Happy" aria-pressed="false">
-                    ☀️<span>Happy</span>
-                </button>
-                <button class="mood-btn" data-mood="Good" aria-pressed="false">
-                    🌷<span>Good</span>
-                </button>
-                <button class="mood-btn" data-mood="Okay" aria-pressed="false">
-                    ☁️<span>Okay</span>
-                </button>
-                <button class="mood-btn" data-mood="Sad" aria-pressed="false">
-                    🌧️<span>Sad</span>
-                </button>
-                <button class="mood-btn" data-mood="Tired" aria-pressed="false">
-                    🌙<span>Tired</span>
-                </button>
-            </div>
+            
+<div class="mood-options" role="group" aria-label="Choose today's mood">
+
+    <button type="button" class="mood-btn" data-mood="happy" aria-pressed="false">
+        ☀️<span>Happy</span>
+    </button>
+
+    <button type="button" class="mood-btn" data-mood="good" aria-pressed="false">
+        🌷<span>Good</span>
+    </button>
+
+    <button type="button" class="mood-btn" data-mood="okay" aria-pressed="false">
+        ☁️<span>Okay</span>
+    </button>
+
+    <button type="button" class="mood-btn" data-mood="sad" aria-pressed="false">
+        🌧️<span>Sad</span>
+    </button>
+
+    <button type="button" class="mood-btn" data-mood="tired" aria-pressed="false">
+        🌙<span>Tired</span>
+    </button>
+
+</div>
+
 
             <p id="mood-response" aria-live="polite">
                 Choose the mood that feels right for you.

@@ -164,3 +164,38 @@ if (heartToggle && heartMenu && heartNav) {
         }
     });
 }
+
+
+// ========================================
+// QUIET CORNER — LETTER WRITING MODAL
+// ========================================
+
+const letterModal = document.getElementById("letter-modal");
+const openLetterBtn = document.getElementById("open-letter-btn");
+const closeLetterBtn = document.getElementById("close-letter-btn");
+
+if (letterModal && openLetterBtn && closeLetterBtn) {
+
+    // Open the letter-writing interface
+    openLetterBtn.addEventListener("click", () => {
+        letterModal.showModal();
+    });
+
+    // Close the interface
+    closeLetterBtn.addEventListener("click", () => {
+        letterModal.close();
+    });
+
+    // Set the earliest unlock date to tomorrow
+    const unlockDate = document.getElementById("unlock-date");
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, "0");
+    const day = String(tomorrow.getDate()).padStart(2, "0");
+
+    unlockDate.min = `${year}-${month}-${day}`;
+
+}
