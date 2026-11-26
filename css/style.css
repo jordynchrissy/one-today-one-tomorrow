@@ -972,3 +972,819 @@ button:focus-visible {
         transition: none;
     }
 }
+
+
+/* ========================================
+   OTOT REGISTRATION / AUTH PAGES
+======================================== */
+
+.auth-page {
+    min-height: 100vh;
+    background: var(--cream);
+}
+
+.auth-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* Left welcome panel */
+
+.auth-welcome {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(30px, 5vw, 75px);
+    background:
+        radial-gradient(circle at 75% 70%, #ffda89, transparent 35%),
+        linear-gradient(145deg, #ffb4c8, #ffcf91 65%, #f58a18);
+    border-right: 2px solid var(--plum);
+    overflow: hidden;
+}
+
+.auth-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--pink);
+}
+
+.auth-logo span {
+    font-size: 2rem;
+    color: var(--orange);
+}
+
+.auth-welcome-content {
+    position: relative;
+    max-width: 550px;
+    padding: 60px 0;
+}
+
+.auth-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #9d285c;
+}
+
+.auth-welcome h1 {
+    font-size: clamp(3.5rem, 6vw, 6.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    margin: 25px 0;
+}
+
+.auth-welcome h1 em {
+    color: var(--pink);
+}
+
+.auth-welcome-content > p:not(.auth-eyebrow) {
+    max-width: 410px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.auth-sticker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 135px;
+    height: 135px;
+    margin-top: 35px;
+    background: var(--teal);
+    border: 3px dashed var(--plum);
+    border-radius: 50%;
+    box-shadow: 5px 5px 0 var(--plum);
+    transform: rotate(-12deg);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.4;
+    transition: transform 0.3s ease;
+}
+
+.auth-sticker strong {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+}
+
+.auth-sticker:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.auth-bottom-note {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+/* Right form section */
+
+.auth-form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px clamp(20px, 5vw, 75px);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 490px;
+}
+
+.auth-label {
+    color: #a52c65;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.auth-card h2 {
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    line-height: 1.15;
+    margin: 20px 0 10px;
+}
+
+.auth-description {
+    margin-bottom: 35px;
+    color: #785667;
+}
+
+/* Form fields */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 17px;
+    background: #fffdf8;
+    border: 2px solid #d9b2bd;
+    border-radius: 12px;
+    color: var(--plum);
+    font: inherit;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px #ee329433;
+}
+
+.form-group input::placeholder {
+    color: #a68d99;
+}
+
+/* Submit button */
+
+.auth-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 16px 22px;
+    margin-top: 10px;
+    background: var(--orange);
+    color: var(--plum);
+    border: 2px solid var(--plum);
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 var(--plum);
+    font-weight: 700;
+    transition: transform 0.25s, background 0.25s;
+}
+
+.auth-submit:hover {
+    background: #ffb75b;
+    transform: translateY(-3px);
+}
+
+/* Login link */
+
+.auth-switch {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.auth-switch a {
+    color: #b72d71;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.auth-footer-note {
+    margin-top: 45px;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #a52c65;
+}
+
+/* Form messages */
+
+.auth-alert {
+    padding: 14px 18px;
+    margin-bottom: 25px;
+    border: 2px solid var(--plum);
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+.auth-alert p {
+    margin: 4px 0;
+}
+
+.auth-error {
+    background: #ffe1e7;
+}
+
+.auth-success {
+    background: #d5f3e7;
+}
+
+.auth-success a {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+
+@media (max-width: 850px) {
+    .auth-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-welcome {
+        min-height: 350px;
+        border-right: none;
+        border-bottom: 2px solid var(--plum);
+    }
+
+    .auth-welcome-content {
+        padding: 35px 0;
+    }
+
+    .auth-welcome h1 {
+        font-size: clamp(3rem, 8vw, 4.5rem);
+    }
+
+    .auth-form-section {
+        padding: 55px 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .auth-sticker,
+    .auth-submit {
+        transition: none;
+    }
+}
+
+
+/* ========================================
+   OTOT LOGIN PAGE DETAILS
+======================================== */
+
+.auth-card h2 {
+    letter-spacing: -0.025em;
+}
+
+.auth-form input:hover {
+    border-color: var(--orange);
+}
+
+.auth-submit:active {
+    transform: translateY(2px);
+    box-shadow: 2px 2px 0 var(--plum);
+}
+
+
+/* ========================================
+   OTOT JOURNAL WRITER
+======================================== */
+
+.journal-writer {
+    max-width: 850px;
+    margin: 70px auto;
+    padding: clamp(25px, 5vw, 55px);
+    background: #fffaf4;
+    border: 2px solid #6b3651;
+    border-radius: 24px;
+    box-shadow: 8px 8px 0 #f7b3c9;
+    color: #563247;
+}
+
+.journal-writer-heading {
+    margin-bottom: 35px;
+}
+
+.journal-eyebrow {
+    color: #c23c79;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.journal-writer h2 {
+    margin: 15px 0;
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.journal-writer h2 em {
+    color: #ee3294;
+}
+
+.journal-writer-heading > p:last-child {
+    line-height: 1.7;
+}
+
+.journal-entry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.journal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.journal-field label,
+.journal-mood-field legend {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.journal-field input,
+.journal-field textarea {
+    width: 100%;
+    padding: 17px 20px;
+    background: white;
+    border: 2px solid #dfb8c5;
+    border-radius: 14px;
+    color: #563247;
+    font: inherit;
+}
+
+.journal-field textarea {
+    resize: vertical;
+    min-height: 200px;
+    line-height: 1.8;
+}
+
+.journal-field input:focus,
+.journal-field textarea:focus {
+    outline: none;
+    border-color: #ee3294;
+    box-shadow: 0 0 0 3px #ee329426;
+}
+
+/* Mood choices */
+
+.journal-mood-field {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.journal-mood-field legend {
+    margin-bottom: 15px;
+}
+
+.journal-mood-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.journal-mood-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.journal-mood-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.journal-mood-option span {
+    display: inline-block;
+    padding: 11px 17px;
+    background: #fff0e6;
+    border: 2px solid #dfb8c5;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.journal-mood-option input:checked + span {
+    background: #ffb6d2;
+    border-color: #ee3294;
+    box-shadow: 3px 3px 0 #6b3651;
+}
+
+.journal-mood-option input:focus-visible + span {
+    outline: 3px solid #6b3651;
+    outline-offset: 3px;
+}
+
+/* Save button */
+
+.journal-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.journal-form-footer p {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.journal-save-btn {
+    padding: 15px 25px;
+    background: #f58a18;
+    color: #563247;
+    border: 2px solid #6b3651;
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 #6b3651;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.journal-save-btn:hover {
+    background: #ffb75b;
+}
+
+.journal-save-btn:focus-visible {
+    outline: 3px solid #ee3294;
+    outline-offset: 4px;
+}
+
+/* Feedback messages */
+
+.journal-message {
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    border: 2px solid #6b3651;
+}
+
+.journal-success {
+    background: #d8f2e4;
+}
+
+.journal-error {
+    background: #ffe0e7;
+}
+
+@media (max-width: 600px) {
+    .journal-writer {
+        margin: 35px 15px;
+        box-shadow: 4px 4px 0 #f7b3c9;
+    }
+
+    .journal-form-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .journal-save-btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .journal-mood-option span {
+        transition: none;
+    }
+}
+
+
+/* ========================================
+   OTOT JOURNAL ARCHIVE
+======================================== */
+
+.journal-archive {
+    max-width: 1150px;
+    margin: 90px auto;
+    padding: 0 25px;
+    color: #563247;
+}
+
+.archive-heading {
+    margin-bottom: 40px;
+}
+
+.archive-heading h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.archive-heading h2 em {
+    color: #ee3294;
+}
+
+.archive-heading > p {
+    line-height: 1.7;
+}
+
+.archive-count {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 16px;
+    background: #ffdfb5;
+    border: 1.5px solid #6b3651;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Journal card grid */
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 25px;
+}
+
+.memory-card {
+    position: relative;
+    min-width: 0;
+    padding: 25px;
+    background: #fffaf4;
+    border: 2px solid #6b3651;
+    border-radius: 18px;
+    box-shadow: 5px 5px 0 #6b3651;
+    transition: transform 0.25s ease;
+    overflow-wrap: anywhere;
+}
+
+.memory-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Mood-based card colours */
+
+.memory-card.mood-happy {
+    background: #ffe6a7;
+}
+
+.memory-card.mood-good {
+    background: #ffd5e5;
+}
+
+.memory-card.mood-okay {
+    background: #d8ede4;
+}
+
+.memory-card.mood-sad {
+    background: #dce4f5;
+}
+
+.memory-card.mood-tired {
+    background: #e9dcf3;
+}
+
+.memory-card.mood-neutral {
+    background: #fffaf4;
+}
+
+/* Date and mood */
+
+.memory-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.memory-date {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.memory-mood {
+    padding: 6px 12px;
+    background: #ffffff90;
+    border: 1px solid #6b3651;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.memory-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin: 25px 0;
+}
+
+/* Expandable journal content */
+
+.memory-details summary {
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #9d285c;
+}
+
+.memory-details summary:focus-visible {
+    outline: 2px solid #6b3651;
+    outline-offset: 5px;
+}
+
+.memory-content {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Decorative card footer */
+
+.memory-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px dashed #6b3651;
+    margin-top: 25px;
+    padding-top: 15px;
+}
+
+.memory-footer span:first-child {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.memory-footer span:last-child {
+    font-size: 1.5rem;
+    color: #c23c79;
+}
+
+/* Empty journal state */
+
+.archive-empty {
+    text-align: center;
+    padding: 60px 25px;
+    background: #fffaf4;
+    border: 2px dashed #d9a3b9;
+    border-radius: 20px;
+}
+
+.archive-empty > span {
+    font-size: 3rem;
+}
+
+.archive-empty h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+.archive-empty p {
+    margin-bottom: 25px;
+}
+
+.archive-empty a {
+    color: #b72d71;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.archive-footer {
+    text-align: center;
+    margin-top: 55px;
+    color: #a52c65;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+/* Responsive design */
+
+@media (max-width: 950px) {
+    .archive-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .journal-archive {
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .memory-card {
+        transition: none;
+    }
+
+    .memory-card:hover {
+        transform: none;
+    }
+}
+
+/* ========================================
+   OTOT JOURNAL EDIT BUTTON
+======================================== */
+
+.memory-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #fffaf4;
+    color: var(--plum);
+    border: 1.5px solid var(--plum);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.memory-edit-btn:hover {
+    background: #ffb6d2;
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   OTOT JOURNAL DELETE BUTTON
+======================================== */
+
+.memory-delete-form {
+    margin: 0;
+}
+
+.memory-delete-btn {
+    padding: 8px 16px;
+    background: #ffe1e7;
+    color: #a52c65;
+    border: 1.5px solid #a52c65;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.memory-delete-btn:hover {
+    background: #ffc0d2;
+    transform: translateY(-3px);
+}
+
+.memory-footer {
+    flex-wrap: wrap;
+}
+
+/* Sticky navigation across all pages */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
