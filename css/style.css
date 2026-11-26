@@ -1489,3 +1489,302 @@ button:focus-visible {
         transition: none;
     }
 }
+
+
+/* ========================================
+   OTOT JOURNAL ARCHIVE
+======================================== */
+
+.journal-archive {
+    max-width: 1150px;
+    margin: 90px auto;
+    padding: 0 25px;
+    color: #563247;
+}
+
+.archive-heading {
+    margin-bottom: 40px;
+}
+
+.archive-heading h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.archive-heading h2 em {
+    color: #ee3294;
+}
+
+.archive-heading > p {
+    line-height: 1.7;
+}
+
+.archive-count {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 16px;
+    background: #ffdfb5;
+    border: 1.5px solid #6b3651;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Journal card grid */
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 25px;
+}
+
+.memory-card {
+    position: relative;
+    min-width: 0;
+    padding: 25px;
+    background: #fffaf4;
+    border: 2px solid #6b3651;
+    border-radius: 18px;
+    box-shadow: 5px 5px 0 #6b3651;
+    transition: transform 0.25s ease;
+    overflow-wrap: anywhere;
+}
+
+.memory-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Mood-based card colours */
+
+.memory-card.mood-happy {
+    background: #ffe6a7;
+}
+
+.memory-card.mood-good {
+    background: #ffd5e5;
+}
+
+.memory-card.mood-okay {
+    background: #d8ede4;
+}
+
+.memory-card.mood-sad {
+    background: #dce4f5;
+}
+
+.memory-card.mood-tired {
+    background: #e9dcf3;
+}
+
+.memory-card.mood-neutral {
+    background: #fffaf4;
+}
+
+/* Date and mood */
+
+.memory-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.memory-date {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.memory-mood {
+    padding: 6px 12px;
+    background: #ffffff90;
+    border: 1px solid #6b3651;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.memory-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin: 25px 0;
+}
+
+/* Expandable journal content */
+
+.memory-details summary {
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #9d285c;
+}
+
+.memory-details summary:focus-visible {
+    outline: 2px solid #6b3651;
+    outline-offset: 5px;
+}
+
+.memory-content {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Decorative card footer */
+
+.memory-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px dashed #6b3651;
+    margin-top: 25px;
+    padding-top: 15px;
+}
+
+.memory-footer span:first-child {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.memory-footer span:last-child {
+    font-size: 1.5rem;
+    color: #c23c79;
+}
+
+/* Empty journal state */
+
+.archive-empty {
+    text-align: center;
+    padding: 60px 25px;
+    background: #fffaf4;
+    border: 2px dashed #d9a3b9;
+    border-radius: 20px;
+}
+
+.archive-empty > span {
+    font-size: 3rem;
+}
+
+.archive-empty h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+.archive-empty p {
+    margin-bottom: 25px;
+}
+
+.archive-empty a {
+    color: #b72d71;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.archive-footer {
+    text-align: center;
+    margin-top: 55px;
+    color: #a52c65;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+/* Responsive design */
+
+@media (max-width: 950px) {
+    .archive-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .journal-archive {
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .memory-card {
+        transition: none;
+    }
+
+    .memory-card:hover {
+        transform: none;
+    }
+}
+
+/* ========================================
+   OTOT JOURNAL EDIT BUTTON
+======================================== */
+
+.memory-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #fffaf4;
+    color: var(--plum);
+    border: 1.5px solid var(--plum);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.memory-edit-btn:hover {
+    background: #ffb6d2;
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   OTOT JOURNAL DELETE BUTTON
+======================================== */
+
+.memory-delete-form {
+    margin: 0;
+}
+
+.memory-delete-btn {
+    padding: 8px 16px;
+    background: #ffe1e7;
+    color: #a52c65;
+    border: 1.5px solid #a52c65;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.memory-delete-btn:hover {
+    background: #ffc0d2;
+    transform: translateY(-3px);
+}
+
+.memory-footer {
+    flex-wrap: wrap;
+}
+
+/* Sticky navigation across all pages */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}

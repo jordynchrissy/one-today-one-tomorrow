@@ -1,10 +1,42 @@
+
 <?php
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+require_once __DIR__ . "/includes/db.php";
+
+date_default_timezone_set("America/Grenada");
+
 $isLoggedIn = isset($_SESSION["user_id"]);
+
+$todayMood = "";
+
+// Generate a security token
+if (empty($_SESSION["csrf_token"])) {
+    $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
+}
+
+// Retrieve today's saved mood
+if ($isLoggedIn) {
+
+    $stmt = $pdo->prepare(
+        "SELECT mood FROM mood_logs
+         WHERE user_id = :user_id
+         AND logged_date = :logged_date"
+    );
+
+    $stmt->execute([
+        ":user_id" => $_SESSION["user_id"],
+        ":logged_date" => date("Y-m-d")
+    ]);
+
+    $todayMood = $stmt->fetchColumn() ?: "";
+}
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,57 +48,7 @@ $isLoggedIn = isset($_SESSION["user_id"]);
 </head>
 <body>
 
-<header class="site-header">
-    <div class="masthead">
-        <span>✳ A LITTLE SPACE TO JUST BE</span>
-        <span>VOL. 01 — EST. 2026</span>
-    </div>
-
-    <nav class="navbar" aria-label="Main navigation">
-        <a class="logo" href="index.php" aria-label="OTOT home">
-            otot<span>✿</span>
-        </a>
-
-        
-<!-- Animated Heart Navigation -->
-<div class="heart-nav">
-
-    <button
-        class="heart-toggle"
-        id="heartToggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="heartMenu">
-        ♥
-    </button>
-
-    <ul class="nav-links heart-menu" id="heartMenu">
-        <li><a class="active" aria-current="page" href="index.php">Home</a></li>
-        <li><a href="journal.php">Journal</a></li>
-        <li><a href="insights.php">Insights</a></li>
-        <li><a href="quiet-corner.php">Quiet Corner</a></li>
-        <li><a href="settings.php">My Space</a></li>
-        
-        <?php if ($isLoggedIn): ?>
-
-            <a href="logout.php">Log Out ♡</a>
-
-        <?php else: ?>
-
-            <a href="login.php">Log In ♡</a>
-            <a href="register.php">Sign Up ✿</a>
-
-        <?php endif; ?>
-
-            </ul>
-
-</div>
-
-
-        <a class="nav-cta" href="journal.php">Dear Diary ↗</a>
-    </nav>
-</header>
+<?php require __DIR__ . "/includes/header.php"; ?>
 
 <main>
     <section class="hero" id="home">
@@ -140,7 +122,14 @@ $isLoggedIn = isset($_SESSION["user_id"]);
     </section>
 
     <section class="mood-section" id="mood-checkin">
-        <div class="mood-card">
+        
+            <div
+                class="mood-card"
+                data-logged-in="<?= $isLoggedIn ? 'true' : 'false' ?>"
+                data-today-mood="<?= htmlspecialchars($todayMood, ENT_QUOTES, 'UTF-8') ?>"
+                data-csrf-token="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>"
+            >
+
             <div class="mood-top">
                 <span>YOUR DAILY POSTCARD</span>
                 <span>✳ CHECK-IN NO. 01</span>
@@ -179,66 +168,7 @@ $isLoggedIn = isset($_SESSION["user_id"]);
     </section>
 </main>
 
-
-<!-- ========================================
-     OTOT SCRAPBOOK FOOTER
-======================================== -->
-
-<footer class="site-footer">
-
-    <div class="footer-inner">
-
-        <!-- Little scrapbook note -->
-        <div class="footer-note">
-
-            <div class="footer-note-top">
-                <span>✿ A LITTLE NOTE BEFORE YOU GO</span>
-                <span>✳</span>
-            </div>
-
-            <h2>Tomorrow is <em>another page.</em></h2>
-
-            <p>
-                Whatever today looked like, there's still room
-                for something beautiful tomorrow. ♡
-            </p>
-
-            <span class="footer-signature">
-                with love, otot ♡
-            </span>
-
-        </div>
-
-        <!-- Brand and navigation -->
-        <div class="footer-main">
-
-            <div class="footer-brand">
-                <a href="index.php" aria-label="OTOT homepage">
-                    otot<span>✿</span>
-                </a>
-                <p>one today, one tomorrow.</p>
-            </div>
-
-            <nav class="footer-links" aria-label="Footer navigation">
-                <a href="index.php">Home</a>
-                <a href="journal.php">Journal</a>
-                <a href="insights.php">Insights</a>
-                <a href="quiet-corner.php">Quiet Corner</a>
-                <a href="settings.php">My Space</a>
-            </nav>
-
-        </div>
-
-        <!-- Bottom strip -->
-        <div class="footer-bottom">
-            <span>© 2026 OTOT · Made with care ♡</span>
-            <span>✿ grow gently ✿</span>
-        </div>
-
-    </div>
-
-</footer>
-
+<?php require __DIR__ . "/includes/footer.php"; ?>
 
 <script src="js/script.js"></script>
 </body>
